@@ -71,7 +71,16 @@ function showPassingGrades(gradesArr) {
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Number}
  */
-function calculateAverage(gradesArr) {}
+function calculateAverage(gradesArr) {
+  let sumOfNumber = 0;
+  for (let x = 0; x < gradesArr.length; x++) {
+    let total = sumOfNumber + gradesArr[x];
+    sumOfNumber = total;
+  }
+  let averageGrade = sumOfNumber / gradesArr.length;
+  let roundedGrades = averageGrade.toFixed(3);
+  return roundedGrades;
+}
 
 /**
  * Write a function that returns the average PASSING grade.
@@ -82,7 +91,19 @@ function calculateAverage(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Number}
  */
-function calculateAveragePassingGrade(gradesArr) {}
+function calculateAveragePassingGrade(gradesArr) {
+  let filteredArr = gradesArr.filter(function(gradesArr) {
+    return gradesArr >= 0.5;
+  });
+  let sumOfNumber = 0;
+  for (let x = 0; x < filteredArr.length; x++) {
+    let total = sumOfNumber + filteredArr[x];
+    sumOfNumber = total;
+  }
+  let averageGrade = sumOfNumber / filteredArr.length;
+  let roundedGrades = averageGrade.toFixed(3);
+  return roundedGrades;
+}
 
 /*
   DO NOT EDIT BELOW THIS LINE
