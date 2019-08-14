@@ -16,8 +16,15 @@ const generateTable = require("./lib/tables");
  * @param {Array<number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<string>} (Example: ['76/100', '45/100'])
  */
-function gradeOutOfHundred(gradesArr) {}
-
+function gradeOutOfHundred(gradesArr) {
+  const newArr = gradesArr.map(function(elements) {
+    const timesHundered = elements * 100;
+    const roundedGrades = Math.round(timesHundered);
+    const gradeOutOfHundred = roundedGrades + "/100";
+    return gradeOutOfHundred;
+  });
+  return newArr;
+}
 /**
  * Write a function that sorts grades from highest to lowest
  * and returns sorted grades in a string format like above,
@@ -28,7 +35,18 @@ function gradeOutOfHundred(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<string>} (Example: ['76/100', '45/100'])
  */
-function sortGrades(gradesArr) {}
+function sortGrades(gradesArr) {
+  const sortedArr = gradesArr.sort(function(a, b) {
+    return b - a;
+  });
+  const newArr = sortedArr.map(function(elements) {
+    const timesHundered = elements * 100;
+    const roundedGrades = Math.round(timesHundered);
+    const gradeOutOfHundred = roundedGrades + "/100";
+    return gradeOutOfHundred;
+  });
+  return newArr;
+}
 
 /**
  * Write a function that returns an array of grades that are
@@ -39,7 +57,10 @@ function sortGrades(gradesArr) {}
  * @param {Array<Number>} gradesArr (Example: [0.76, 0.45])
  * @return {Array<Number>} (Example: [0.76, 0.77])
  */
-function showPassingGrades(gradesArr) {}
+function showPassingGrades(gradesArr) {
+  const filteredResult = gradesArr.filter((gradesArr) => gradesArr >= 0.5);
+  return filteredResult;
+}
 
 /**
  * Write a function that returns the average grade.
